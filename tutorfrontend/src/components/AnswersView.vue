@@ -1,13 +1,19 @@
 <template>
-<li>
-    <div v-if = "!this.$store.state.updateState">
-        {{ answer }} 
-        {{date}}<br>
-        {{ enteredcategory }}
-        {{ enteredtopic }}---{{ enteredstudent }}---{{ enteredcompany }}---{{ enteredlinks }}
-        <button @click="changeState()">Edit</button>
+    <div class = "answer-section">
+        <!-- <div class = "first">
+            <span style="font-size:lighter;font-family: cursive;">{{date}}</span>
+            <span style="font-size:lighter;font-family: cursive;">{{ enteredstudent }}</span>
+        </div> -->
+        <div class="second">
+            <span class="answer">A. {{ answer }}</span>
+            <base-button mode = "submit" @click="changeState()">Edit</base-button>
+        </div>
+        <div class = "third">
+            <span style="text-decoration:underline;">References</span>
+            <span>  <a href='{{enteredlinks}}'>{{ enteredlinks.split() }}</a></span>
+        </div>
     </div>
-    <div v-else>
+    <div v-if = "this.$store.state.updateState">
         <edit-form
             :id = "quesId"
             :question = "question"
@@ -19,8 +25,6 @@
             :links = 'enteredlinks'>
         </edit-form>
     </div>
-
-</li>
 </template>
 <script>
 import EditForm from './EditForm.vue'
@@ -61,7 +65,38 @@ export default {
 };
 </script>
 <style scoped>
-textarea{
-    width:100%;
+.answer-section{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    /* background-color: rgb(247, 0, 255); */
+}
+.answer{
+    margin-bottom: 0.5rem;
+    font-size:medium;
+    font-weight: 600;
+}
+.first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(0, 255, 17); */
+}.second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+}
+.third{
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+    /* background-color: rgb(208, 255, 0); */
 }
 </style>

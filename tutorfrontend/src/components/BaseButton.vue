@@ -26,6 +26,7 @@ export default {
     outline: none;
     border-radius: 5px;
     padding: 5px;
+    cursor:pointer;
 }
 .delete{
     background-color: white;
@@ -36,11 +37,19 @@ export default {
     color: red;
 }
 .submit{
-    background-color: rgb(23, 93, 159);
-    color: white;
+    width:fit-content;
+    border-color: rgb(23, 93, 159);
+    border-radius: 5px;
+    padding:3px 10px;
+    margin: 1rem;
+    background-color: white;
+    color: rgb(23, 93, 159);
+    outline: none;
+    cursor: pointer;
 }
-.submit:hover{
+.submit:hover,
+.add:hover{
     background-color: rgb(97, 154, 207);
-    color: black;
+    color: white;
 }
 </style>

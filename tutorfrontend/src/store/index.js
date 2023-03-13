@@ -28,8 +28,13 @@ const store = createStore({
             })
         },
         updateData({state}, payload){
+            const idx = state.data.findIndex((que) => que.id === payload.id);
             axios.put(state.API_URL+'/'+`${payload.id}`, payload.data)
-            .then(console.log('Updated!!!!!!'))
+            .then((response) => {
+                state.data[idx] = payload.data;
+                console.log(response.data);
+                console.log('Updated!!!!!!');
+            })
         },
         deleteQuestion({state}, payload){
             const idx = state.data.findIndex((list) => list.id === payload.id);
@@ -38,10 +43,6 @@ const store = createStore({
                 state.data.splice(idx,1);
             })
         },
-        filterBasedOnCategories({state}, payload){
-            const id = payload.id;
-            console.log(state.data, id)
-        }
     },
     mutations: {
         loadQuestions(state, data){

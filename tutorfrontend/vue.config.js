@@ -3,4 +3,4 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath:'/',
 })
-module.exports.devServer.webSocketServer = false;
+// module.exports.devServer.webSocketServer = false;
