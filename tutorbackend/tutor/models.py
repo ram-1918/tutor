@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class TutorModel(models.Model):
-    options = [('python', 'Python'),('java', 'Java'),('sql', 'SQL'),('web', 'WEB'),('others', 'Others')]
+    options = [('python', 'Python'),('java', 'Java'),('sql', 'SQL'),('web', 'WEB Technologies'), ('pyspark', 'PySpark'),('others', 'Others')]
     question = models.TextField()
     answer = models.TextField(blank = True)
     date_create = models.DateField(auto_now = True)

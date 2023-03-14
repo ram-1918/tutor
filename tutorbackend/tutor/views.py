@@ -18,7 +18,7 @@ class CreatePost(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['question', 'category', 'answer', 'date_create', 'topic', 'student_name', 'company']
     search_fields = ['question', 'category', 'answer', 'topic', 'student_name', 'company']
-    ordering_fields = ['topic', 'category', 'student_name', 'company']
+    # ordering_fields = ['topic', 'category', 'student_name', 'company']
     
 
 class UpdatePost(generics.RetrieveUpdateDestroyAPIView):
