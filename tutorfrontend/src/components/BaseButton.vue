@@ -18,6 +18,7 @@ export default {
     border: none;
     padding: 5px;
     font-size: medium;
+    width: 110px;
 }
 .add{
     background-color: white;

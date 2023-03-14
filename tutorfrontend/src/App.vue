@@ -4,13 +4,21 @@
 
 <script>
 import BasePage from './components/BasePage.vue'
+
 export default {
   components: {
     BasePage
   },
   created(){
     this.$store.dispatch('loadQuestions');
-  }
+  },
+//   mounted() {
+//     this.$connect('ws://localhost:8000', {
+//       reconnection: true,
+//       reconnectionAttempts: 5,
+//       reconnectionDelay: 3000,
+//     })
+// }
 };
 </script>
 

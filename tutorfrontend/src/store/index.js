@@ -6,7 +6,7 @@ const store = createStore({
     modules: {},
     state() {
         return {
-            API_URL: 'http://44.198.175.50:8000/api/tutor-list',
+            API_URL: 'http://44.198.175.50:8000/api/tutor-list/',
             authorization: {auth: {username:'tutor', password:'tutor123'}},
             data: [],
             allData: [],
@@ -23,13 +23,15 @@ const store = createStore({
         postData({state}, payload){
             axios.post(state.API_URL, payload, state.authorization)
             .then(() => {
-                this.dispatch('loadQuestions');
+                // this.dispatch('loadQuestions');
+                state.data.push(payload);
+                console.log('Posted!', payload);
                 router.push('/tutorials/');
             })
         },
         updateData({state}, payload){
             const idx = state.data.findIndex((que) => que.id === payload.id);
-            axios.put(state.API_URL+'/'+`${payload.id}`, payload.data)
+            axios.put(state.API_URL+`${payload.id}`, payload.data)
             .then((response) => {
                 state.data[idx] = payload.data;
                 console.log(response.data);
@@ -38,7 +40,7 @@ const store = createStore({
         },
         deleteQuestion({state}, payload){
             const idx = state.data.findIndex((list) => list.id === payload.id);
-            axios.delete(state.API_URL+'/'+`${payload.id}`)
+            axios.delete(state.API_URL+`${payload.id}`)
             .then(() => {
                 state.data.splice(idx,1);
             })

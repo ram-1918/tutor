@@ -25,7 +25,12 @@
                 <label for="category">Category</label>
                 </div>
                 <div class="col-75">
-                <input type="text" id="category" v-model="category1" placeholder="Category...">
+                <select class="dropdown" name = "select" v-model = "category1" >
+                        <option value = "python">Python</option>
+                        <option value = "java">Java</option>
+                        <option value = "sql">SQL</option>
+                        <option value = "other" selected>Other</option>
+                    </select>
                 </div>
             </div>
             <div class="row">

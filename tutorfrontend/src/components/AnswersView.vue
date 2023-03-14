@@ -10,7 +10,7 @@
         </div>
         <div class = "third">
             <span style="text-decoration:underline;">References</span>
-            <span>  <a href='{{enteredlinks}}'>{{ enteredlinks.split() }}</a></span>
+            <span v-for = "link in enteredlinks.split(' ')" :key = link>  <a href='{{link}}'>{{link.split()[0]}}</a></span>
         </div>
     </div>
     <div v-if = "this.$store.state.updateState">
